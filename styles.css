@@ -11,30 +11,37 @@ body {
 
 /* Header */
 header {
-    padding: 25px;
+    padding: 50px;
 }
 
 #header-img {
-    max-width: 350px;
     position: relative;
     margin: 0 auto;
+    box-shadow: 2px 2px 6px #999;
+    min-width: 100%;
+}
+
+#header-img img,
+footer img {
+    object-fit: cover;
+    min-width: 100%;
+    height: 500px;
 }
 
 #header-img h1 {
     position: absolute;
     bottom: 0;
     color: white;
-    font-size: 40px;
     z-index: 1;
 }
 
 #header-des {
     box-shadow: 2px 2px 6px #999;
     padding: 15px;
+    height: 400px;
 }
 
 #header-des h2 {
-    font-size: 30px;
     margin-top: 20px;
 }
 
@@ -53,20 +60,26 @@ header {
 
 /* Main */
 main {
-    padding: 25px;
+    padding: 50px;
 }
 
 main h2 {
     margin-bottom: 10px;
 }
 
+#project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .projects {
     margin: 0 auto 50px;
     box-shadow: 2px 2px 6px #999;
+    max-width: 350px;
 }
 
 .projects p {
-    padding: 0 10px 10px;
+    padding: 0 15px 15px;
 }
 
 .projects img {
@@ -77,16 +90,22 @@ main h2 {
 footer {
     color: white;
     background-color: #13728a;
+    padding: 50px;
+    min-width: 100%;
 }
 
-footer .address {
-    padding: 25px;
+footer .address-img {
+    margin: 0 auto;
+}
+
+footer .grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
 }
 
 footer .icon-container {
     color: black;
     font-size: 40px;
-    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -96,72 +115,139 @@ img {
     max-width: 100%;
 }
 
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
 p {
     word-wrap: break-word;
 }
 
-h2 {
-    text-align: center;
-}
-
-.grid-one {
+.grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 600px 1fr;
+    align-items: center;
 }
 
 .grid-two {
     display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1500px) {
 
     header,
     main,
     footer {
-        padding: 50px;
+        padding: 60px !important;
     }
 
-    h2 {
-        text-align: left;
-    }   
-
-    .grid-one {
+    .grid {
         display: grid;
         grid-template-columns: 400px 1fr;
         align-items: center;
-        justify-content: center;
-    }
-
-    #header-img {
-        margin: 0;
-        max-width: 100%;
-    }
-
-    #header-img img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-    }
-
-    #header-des {
-        height: 350px;
-    }
-
-    #header-des #header-icon {
-        float: right;
-    }
-
-    #project-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .projects {
-        max-width: 250px;
+        max-width: 270px !important;
+    }
+
+    .grid-two {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+
+    footer .grid {
+        grid-template-columns: 1fr 400px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header,
+    main {
+        padding: 20px !important;
+    }
+    
+    .projects {
+        max-width: 280px !important;
+    }
+
+    #header-img {
+        height: 500px;
+        box-shadow: none;
+        position: relative;
+    }
+
+    #header-img h1 {
+        bottom: 20%;
+    }
+
+    #header-img img,
+    footer img {
+        height: 400px;
+        box-shadow: 2px 2px 2px #999;
+    }
+
+    #header-icon {
+        display: none;
+    }
+
+    #header-des {
+        align-self: flex-end;
+    }
+
+    #project-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grid,
+    footer .grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+@media (max-width: 426px) {
+
+    .grid,
+    footer .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    footer {
+        padding: 0 !important;
+    }
+
+    header,
+    main {
+        padding: 20px !important;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    #header-des {
+        box-shadow: none;
+    }
+
+    #header-img {
+        height: auto;
+    }
+
+    #project-container {
+        grid-template-columns: 1fr !important;
     }
 
     footer .address {
-        max-width: 100% !important;
+        padding: 15px;
+    }
+
+    footer .address .icon-container {
+        text-align: center;
+        font-size: 50px;
     }
 }
